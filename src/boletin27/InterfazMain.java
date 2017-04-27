@@ -5,6 +5,8 @@
  */
 package boletin27;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author otorradomiguez
@@ -40,7 +42,7 @@ public class InterfazMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Boletin 27");
-        setPreferredSize(new java.awt.Dimension(400, 600));
+        setPreferredSize(new java.awt.Dimension(600, 800));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         jPanelTop.setPreferredSize(new java.awt.Dimension(400, 200));
@@ -58,7 +60,8 @@ public class InterfazMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelTop.add(jLabelNombre, gridBagConstraints);
 
-        jTextFieldNombre.setPreferredSize(new java.awt.Dimension(100, 20));
+        jTextFieldNombre.setMinimumSize(new java.awt.Dimension(180, 30));
+        jTextFieldNombre.setPreferredSize(new java.awt.Dimension(180, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -78,7 +81,8 @@ public class InterfazMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelTop.add(jLabelApellido, gridBagConstraints);
 
-        jTextFieldApellido.setPreferredSize(new java.awt.Dimension(100, 20));
+        jTextFieldApellido.setMinimumSize(new java.awt.Dimension(180, 30));
+        jTextFieldApellido.setPreferredSize(new java.awt.Dimension(180, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -122,7 +126,12 @@ public class InterfazMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        
+        String nombre=jTextFieldNombre.getText();
+        String apellido=jTextFieldApellido.getText();
+        String curso=(String)jComboBox1.getSelectedItem();
+        System.out.println(jTable2.getRowCount());
+        DefaultTableModel nuevaFila=(DefaultTableModel)jTable2.getModel();
+        nuevaFila.addRow();
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     /**
