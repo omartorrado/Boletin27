@@ -33,8 +33,8 @@ public class InterfazMain extends javax.swing.JFrame {
         jTextFieldNombre = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabelApellido = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextFieldApellido = new javax.swing.JTextField();
+        jButtonAgregar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -78,23 +78,23 @@ public class InterfazMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelTop.add(jLabelApellido, gridBagConstraints);
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(100, 20));
+        jTextFieldApellido.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        jPanelTop.add(jTextField1, gridBagConstraints);
+        jPanelTop.add(jTextFieldApellido, gridBagConstraints);
 
-        jButton1.setText("Agregar a Tabla");
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregar.setText("Agregar a Tabla");
+        jButtonAgregar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAgregarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        jPanelTop.add(jButton1, gridBagConstraints);
+        jPanelTop.add(jButtonAgregar, gridBagConstraints);
 
         getContentPane().add(jPanelTop);
 
@@ -121,9 +121,9 @@ public class InterfazMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,14 +161,14 @@ public class InterfazMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAgregar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
