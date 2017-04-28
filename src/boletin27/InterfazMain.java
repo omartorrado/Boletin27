@@ -42,10 +42,10 @@ public class InterfazMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Boletin 27");
-        setPreferredSize(new java.awt.Dimension(600, 800));
+        setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
-        jPanelTop.setPreferredSize(new java.awt.Dimension(400, 200));
+        jPanelTop.setPreferredSize(new java.awt.Dimension(400, 150));
         jPanelTop.setVerifyInputWhenFocusTarget(false);
         java.awt.GridBagLayout jPanelTopLayout = new java.awt.GridBagLayout();
         jPanelTopLayout.columnWidths = new int[] {0, 50, 0, 50, 0};
@@ -104,7 +104,7 @@ public class InterfazMain extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellido", "Curso"
@@ -131,7 +131,8 @@ public class InterfazMain extends javax.swing.JFrame {
         String curso=(String)jComboBox1.getSelectedItem();
         System.out.println(jTable2.getRowCount());
         DefaultTableModel nuevaFila=(DefaultTableModel)jTable2.getModel();
-        nuevaFila.addRow();
+        nuevaFila.addRow(new Object[]{nombre,apellido,curso});
+        jTable2.setModel(nuevaFila);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     /**
