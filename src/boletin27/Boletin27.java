@@ -144,15 +144,20 @@ public class Boletin27 extends javax.swing.JFrame {
         String apellido = jTextFieldApellido.getText();
         String curso = (String) jComboBox1.getSelectedItem();
         /*
-        Asi podemos obtener el numero de filas actual
-        //System.out.println(jTable2.getRowCount());
+        Asi podemos obtener el numero de filas actual:
+        System.out.println(jTable2.getRowCount());
          */
         DefaultTableModel nuevaFila = (DefaultTableModel) jTable2.getModel();
-        /*Uso confirmacion para comprobar si ya hay una entrada en la tabla con esos valores
+        /*
+        Uso confirmacion para comprobar si ya hay una entrada en la tabla con esos valores
         si confirmacion es -77 es que no hay ninguna entrada con esos datos, sino salta un
         JOptionPane que nos pide confirmacion antes de agregar
         */
         int confirmacion=-77;
+        /*
+        Comprueba fila a fila si los valores de cada campo se corresponden con los que
+        intentamos añadir
+        */        
         for (int i = 0; i < nuevaFila.getRowCount(); i++) {
             if (nuevaFila.getValueAt(i, 0).equals(nombre) && nuevaFila.getValueAt(i, 1).equals(apellido) && nuevaFila.getValueAt(i, 2).equals(curso)) {
                 confirmacion=JOptionPane.showConfirmDialog(rootPane, "Ya existe un alumno con ese nombre. ¿Quieres agregarlo igualmente?","Alerta",YES_NO_OPTION);
@@ -161,17 +166,30 @@ public class Boletin27 extends javax.swing.JFrame {
         }
         if(confirmacion==JOptionPane.YES_OPTION||confirmacion==-77){
             nuevaFila.addRow(new Object[]{nombre, apellido, curso});
-        }        
+        } 
+        //Por ultimo cargamos el modelo modificado (o no) en la tabla 
         jTable2.setModel(nuevaFila);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         try {
             DefaultTableModel filaSelect = (DefaultTableModel) jTable2.getModel();
+            /*
+            Guardamos las filas seleccionadas en el array filas (Pq el metodo devuelve
+            un array)
+            */
             int[] filas = jTable2.getSelectedRows();
+            /*
+            Hacemos un bucle for que recorra el array desde el final, para que
+            no cambie la posicion del las filas antes de borrarlas (Lo cual ocurre
+            al borrar en el orden normal ya que al eliminar una fila, la tabla se reajusta)
+            */                   
             for (int i = filas.length - 1; i >= 0; i--) {
                 filaSelect.removeRow(filas[i]);
             }
+            /*
+            Por ultimo cargamos el modelo modificado
+            */
             jTable2.setModel(filaSelect);
         } catch (Exception e) {
             System.out.println("No se ha podido borrar la fila");
