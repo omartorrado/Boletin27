@@ -138,21 +138,24 @@ public class Boletin27 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-        String nombre=jTextFieldNombre.getText();
-        String apellido=jTextFieldApellido.getText();
-        String curso=(String)jComboBox1.getSelectedItem();
+        String nombre = jTextFieldNombre.getText();
+        String apellido = jTextFieldApellido.getText();
+        String curso = (String) jComboBox1.getSelectedItem();
         System.out.println(jTable2.getRowCount());
-        DefaultTableModel nuevaFila=(DefaultTableModel)jTable2.getModel();
-        nuevaFila.addRow(new Object[]{nombre,apellido,curso});
+        DefaultTableModel nuevaFila = (DefaultTableModel) jTable2.getModel();
+        nuevaFila.addRow(new Object[]{nombre, apellido, curso});
         jTable2.setModel(nuevaFila);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        try{
-        DefaultTableModel filaSelect=(DefaultTableModel)jTable2.getModel();
-        filaSelect.removeRow(jTable2.getSelectedRow());
-        jTable2.setModel(filaSelect);
-        }catch(Exception e){
+        try {
+            DefaultTableModel filaSelect = (DefaultTableModel) jTable2.getModel();
+            int[] filas = jTable2.getSelectedRows();
+            for (int i = filas.length - 1; i >= 0; i--) {
+                filaSelect.removeRow(filas[i]);
+            }
+            jTable2.setModel(filaSelect);
+        } catch (Exception e) {
             System.out.println("No se ha podido borrar la fila");
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
