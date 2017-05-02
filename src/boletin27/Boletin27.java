@@ -37,6 +37,7 @@ public class Boletin27 extends javax.swing.JFrame {
         jLabelApellido = new javax.swing.JLabel();
         jTextFieldApellido = new javax.swing.JTextField();
         jButtonAgregar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -100,6 +101,17 @@ public class Boletin27 extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         jPanelTop.add(jButtonAgregar, gridBagConstraints);
 
+        jButtonBorrar.setText("Borrar Fila");
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        jPanelTop.add(jButtonBorrar, gridBagConstraints);
+
         getContentPane().add(jPanelTop);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -134,6 +146,16 @@ public class Boletin27 extends javax.swing.JFrame {
         nuevaFila.addRow(new Object[]{nombre,apellido,curso});
         jTable2.setModel(nuevaFila);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
+
+    private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
+        try{
+        DefaultTableModel filaSelect=(DefaultTableModel)jTable2.getModel();
+        filaSelect.removeRow(jTable2.getSelectedRow());
+        jTable2.setModel(filaSelect);
+        }catch(Exception e){
+            System.out.println("No se ha podido borrar la fila");
+        }
+    }//GEN-LAST:event_jButtonBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +195,7 @@ public class Boletin27 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonBorrar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelNombre;
