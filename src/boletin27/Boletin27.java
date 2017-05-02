@@ -141,7 +141,10 @@ public class Boletin27 extends javax.swing.JFrame {
         String nombre = jTextFieldNombre.getText();
         String apellido = jTextFieldApellido.getText();
         String curso = (String) jComboBox1.getSelectedItem();
-        System.out.println(jTable2.getRowCount());
+        /*
+        Asi podemos obtener el numero de filas actual
+        //System.out.println(jTable2.getRowCount());
+        */
         DefaultTableModel nuevaFila = (DefaultTableModel) jTable2.getModel();
         nuevaFila.addRow(new Object[]{nombre, apellido, curso});
         jTable2.setModel(nuevaFila);
