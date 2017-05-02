@@ -5,6 +5,8 @@
  */
 package boletin27;
 
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -144,9 +146,22 @@ public class Boletin27 extends javax.swing.JFrame {
         /*
         Asi podemos obtener el numero de filas actual
         //System.out.println(jTable2.getRowCount());
-        */
+         */
         DefaultTableModel nuevaFila = (DefaultTableModel) jTable2.getModel();
-        nuevaFila.addRow(new Object[]{nombre, apellido, curso});
+        /*Uso confirmacion para comprobar si ya hay una entrada en la tabla con esos valores
+        si confirmacion es -77 es que no hay ninguna entrada con esos datos, sino salta un
+        JOptionPane que nos pide confirmacion antes de agregar
+        */
+        int confirmacion=-77;
+        for (int i = 0; i < nuevaFila.getRowCount(); i++) {
+            if (nuevaFila.getValueAt(i, 0).equals(nombre) && nuevaFila.getValueAt(i, 1).equals(apellido) && nuevaFila.getValueAt(i, 2).equals(curso)) {
+                confirmacion=JOptionPane.showConfirmDialog(rootPane, "Ya existe un alumno con ese nombre. ¿Quieres agregarlo igualmente?","Alerta",YES_NO_OPTION);
+                break;
+            }
+        }
+        if(confirmacion==JOptionPane.YES_OPTION||confirmacion==-77){
+            nuevaFila.addRow(new Object[]{nombre, apellido, curso});
+        }        
         jTable2.setModel(nuevaFila);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
